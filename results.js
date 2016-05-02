@@ -1,1 +1,1 @@
-document.getElementById("results").innerHTML = typeof(ads);
+document.getElementById("results").innerHTML = typeof(ads) + typeof(ga);
