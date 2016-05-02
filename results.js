@@ -1,0 +1,1 @@
+document.getElementById("results").innerHTML = typeof(ads);
