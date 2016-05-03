@@ -48,7 +48,7 @@ var survey = {
 		{
 			"text": "Have you ever done any programming?",
 			"type": "checkbox"
-		},
+		}
 	]
 };
 
@@ -57,7 +57,32 @@ function buildSurvey() {
 	box.empty();
 	survey.questions.forEach(function(question) {
 		var row = $("<div></div>").text(question.text);
-		row.append("<div>Pretend there's a chooser here</div>");
+		var chooser = $("<div></div>");
+
+		var input;
+		switch (question.type) {
+			case "text":
+				input = $("<input>").attr("type", "text");
+				break;
+			case "number":
+				input = $("<input>").attr("type", "number");
+				break;
+			case "checkbox":
+				input = $("<input>").attr("type", "checkbox");
+				break;
+			case "option":
+				input = $("<select>");
+
+				Object.keys(question.options).forEach(function(key) {
+					var optionTag = $("<option></option>");
+					optionTag.text(key);
+					optionTag.val(question.options[key]);
+					input.append(optionTag);
+				});
+				break;
+		}
+		chooser.append(input);
+		row.append(chooser);
 		row.append("<br>");
 		box.append(row);
 	});
