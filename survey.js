@@ -36,7 +36,7 @@ var survey = {
 		},
 		{
 			"text": "Which of these sites do you have accounts on?",
-			"type": "radio",
+			"type": "checkboxes",
 			"options": {
 				"Facebook": "Facebook",
 				"instagram": "Instagram",
@@ -48,7 +48,7 @@ var survey = {
 		},
 		{
 			"text": "Have you ever done any programming?",
-			"type": "checkbox"
+			"type": "boolean"
 		}
 	]
 };
@@ -56,24 +56,31 @@ var survey = {
 function buildSurvey() {
 	var box = $("#survey");
 	box.empty();
-	survey.questions.forEach(function(question) {
+	survey.questions.forEach(function(question, index) {
 		var row = $("<div></div>").text(question.text);
 		var chooser = $("<div></div>");
+
+		var fieldName = "name-" + index;
 
 		var input;
 		switch (question.type) {
 			case "text":
-				input = $("<input>").attr("type", "text");
+				input = $("<input>").attr({"type": "text", "name": fieldName});
 				chooser.append(input);
 				break;
 			case "number":
-				input = $("<input>").attr("type", "number");
+				input = $("<input>").attr({"type": "number", "name": fieldName});
 				chooser.append(input);
 				chooser.append($("<span class=\"addon\">" + question.unit + "</span>"));
 				break;
-			case "checkbox":
-				input = $("<input>").attr("type", "checkbox");
-				chooser.append(input);
+			case "boolean":
+				input = $("<input>").attr({"type": "radio", "name": fieldName}).val("true");
+				var label = $("<label></label>").append(input).append(" Yes");
+				chooser.append(label);
+
+				input = $("<input>").attr({"type": "radio", "name": fieldName}).val("false");
+				label = $("<label></label>").append(input).append(" No");
+				chooser.append(label);
 				break;
 			case "option":
 				input = $("<select></select>");
@@ -88,9 +95,18 @@ function buildSurvey() {
 				break;
 			case "radio":
 				Object.keys(question.options).forEach(function(key) {
-					var radio = $("<input>").attr("type", "radio");
+					var radio = $("<input>").attr({"type": "radio", "name": fieldName});
 					var label = $("<label></label>").append(radio);
 					radio.val(key);
+					label.append(question.options[key]);
+					chooser.append(label);
+				});
+				break;
+			case "checkboxes":
+				Object.keys(question.options).forEach(function(key) {
+					var checkbox = $("<input>").attr({"type": "checkbox", "name": fieldName});
+					var label = $("<label></label>").append(checkbox);
+					checkbox.val(key);
 					label.append(question.options[key]);
 					chooser.append(label);
 				});
@@ -100,4 +116,6 @@ function buildSurvey() {
 		row.append("<br>");
 		box.append(row);
 	});
+	var submit = $("<input>").attr("type", "submit").val("Submit");
+	box.append(submit);
 }

@@ -7,6 +7,6 @@ label {
 	padding: 0.25em 0;
 }
 
-label input[type="radio"] {
+label input[type="radio"], label input[type="checkbox"] {
 	margin-right: 0.5em;
 }
