@@ -1,3 +1,12 @@
 .adsbygoogle {
-  width: 2px;
+	width: 2px;
+}
+
+label {
+	display: block;
+	padding: 0.25em 0;
+}
+
+label input[type="radio"] {
+	margin-right: 0.5em;
 }

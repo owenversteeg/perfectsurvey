@@ -2,16 +2,16 @@ var survey = {
 	"questions": [
 		{
 			"text": "What is your gender?",
-			"type": "option",
+			"type": "radio",
 			"options": {
-				"Male": "m",
-				"Female": "f",
-				"Other": "o"
+				"m": "Male",
+				"f": "Female",
+				"o": "Other"
 			}
 		},
 		{
 			"text": "What is your age?",
-			"type": "option",
+			"type": "radio",
 			"options": {
 				"14": "14",
 				"15": "15",
@@ -26,23 +26,23 @@ var survey = {
 		},
 		{
 			"text": "Do you use any of these adblockers or privacy tools?",
-			"type": "option",
+			"type": "checkboxes",
 			"options": {
-				"Adblock Plus (ABP)": "abp",
-				"uBlock (shield)": "ublock",
-				"Ghostery (ghost icon)": "ghostery"
+				"abp": "Adblock Plus (ABP)",
+				"ublock": "uBlock (shield)",
+				"ghostery": "Ghostery (ghost icon)"
 			}
 		},
 		{
 			"text": "Which of these sites do you have accounts on?",
-			"type": "option",
+			"type": "radio",
 			"options": {
 				"Facebook": "Facebook",
-				"Instagram": "instagram",
-				"Twitter": "twitter",
+				"instagram": "Instagram",
+				"twitter": "Twitter",
 				"tumblr": "tumblr",
 				"reddit": "reddit",
-				"YouTube": "youtube"
+				"youtube": "YouTube"
 			}
 		},
 		{
@@ -71,13 +71,24 @@ function buildSurvey() {
 				input = $("<input>").attr("type", "checkbox");
 				break;
 			case "option":
-				input = $("<select>");
+				input = $("<select></select>");
 
 				Object.keys(question.options).forEach(function(key) {
 					var optionTag = $("<option></option>");
 					optionTag.text(key);
 					optionTag.val(question.options[key]);
 					input.append(optionTag);
+				});
+				break;
+			case "radio":
+				input = $("<div></div>");
+
+				Object.keys(question.options).forEach(function(key) {
+					var radio = $("<input>").attr("type", "radio");
+					var label = $("<label></label>").append(radio);
+					radio.val(key);
+					label.append(question.options[key]);
+					input.append(label);
 				});
 				break;
 		}
