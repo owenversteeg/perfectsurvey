@@ -7,4 +7,6 @@ if ($('#projectwonderful').width() === 0) {
   ghostery = undefined;
 }
 
+if ($('#websitealive').width() === 1) ghostery = true;
+
 alert('using ghostery: ' + ghostery + ', using uBlock: ' + uBlock + ' undefined means we don\'t know')
