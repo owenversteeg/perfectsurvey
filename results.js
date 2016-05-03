@@ -1,6 +1,5 @@
 function blockingAds() {
-	//TODO
-	return "i have no idea";
+	return $('.adsbygoogle').css('display') === "none";
 }
 function blockingGA() {
 	return typeof(ga.da) === "undefined";
