@@ -22,7 +22,8 @@ var survey = {
 		},
 		{
 			"text": "How much time do you spend on the internet on an average weekday / weekend day?",
-			"type": "number"
+			"type": "number",
+			"unit": "Hours"
 		},
 		{
 			"text": "Do you use any of these adblockers or privacy tools?",
@@ -63,12 +64,16 @@ function buildSurvey() {
 		switch (question.type) {
 			case "text":
 				input = $("<input>").attr("type", "text");
+				chooser.append(input);
 				break;
 			case "number":
 				input = $("<input>").attr("type", "number");
+				chooser.append(input);
+				chooser.append($("<span class=\"addon\">" + question.unit + "</span>"));
 				break;
 			case "checkbox":
 				input = $("<input>").attr("type", "checkbox");
+				chooser.append(input);
 				break;
 			case "option":
 				input = $("<select></select>");
@@ -79,20 +84,18 @@ function buildSurvey() {
 					optionTag.val(question.options[key]);
 					input.append(optionTag);
 				});
+				chooser.append(input);
 				break;
 			case "radio":
-				input = $("<div></div>");
-
 				Object.keys(question.options).forEach(function(key) {
 					var radio = $("<input>").attr("type", "radio");
 					var label = $("<label></label>").append(radio);
 					radio.val(key);
 					label.append(question.options[key]);
-					input.append(label);
+					chooser.append(label);
 				});
 				break;
 		}
-		chooser.append(input);
 		row.append(chooser);
 		row.append("<br>");
 		box.append(row);
