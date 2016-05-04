@@ -1,8 +1,8 @@
 body, .main {
-	background-color: #f99;
+	background-color: #6c6;
 }
 
-.question {
+.question, .title {
 	padding: 3em;
 	font-family: Roboto, Arial, sans-serif;
 	background-color: #fff;
@@ -10,7 +10,7 @@ body, .main {
 	margin-bottom: 3em;
 }
 
-.question > header {
+.question > header, .title > header {
 	font-weight: 800;
 	font-size: 24pt;
 }
