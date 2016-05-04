@@ -57,7 +57,8 @@ function buildSurvey() {
 	var box = $("#survey");
 	box.empty();
 	survey.questions.forEach(function(question, index) {
-		var row = $("<div></div>").text(question.text);
+		var row = $("<div></div>").addClass("question");
+		row.append($("<header></header>").text(question.text));
 		var chooser = $("<div></div>");
 
 		var fieldName = "name-" + index;

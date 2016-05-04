@@ -1,0 +1,25 @@
+body, .main {
+	background-color: #f99;
+}
+
+.question {
+	padding: 3em;
+	font-family: Roboto, Arial, sans-serif;
+	background-color: #fff;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
+	margin-bottom: 3em;
+}
+
+.question > header {
+	font-weight: 800;
+	font-size: 24pt;
+}
+
+label {
+	display: block;
+	padding: 0.25em 0;
+}
+
+label input[type="radio"], label input[type="checkbox"] {
+	margin-right: 0.5em;
+}
