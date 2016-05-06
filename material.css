@@ -1,12 +1,12 @@
 body, .main {
-	background-color: #6c6;
+	background-color: #9d9;
 }
 
 .question, .title {
 	padding: 2em;
 	font-family: Roboto, Arial, sans-serif;
 	background-color: #fff;
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
+	box-shadow: 0 3px 5px rgba(153, 153, 153, 0.5);
 }
 
 .chooser > header, .title > header {
@@ -21,7 +21,7 @@ h1 {
 
 label {
 	display: block;
-	padding: 0.25em 0;
+	padding: 0.5em 0;
 }
 
 label input[type="radio"], label input[type="checkbox"] {
