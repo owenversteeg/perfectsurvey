@@ -65,6 +65,10 @@ var survey = {
 			"unit": "Applications",
 			"minimum": 0,
 			"maximum": 50
+		},
+		{
+			"text": "Send Response",
+			"type": "submit"
 		}
 
 	]
@@ -75,8 +79,9 @@ function buildSurvey() {
 	box.empty();
 	survey.questions.forEach(function(question, index) {
 		var row = $("<div></div>").addClass("question");
-		row.append($("<header></header>").text(question.text));
-		var chooser = $("<div></div>");
+		var chooser = $("<div></div>").addClass("chooser");
+		var header = $("<header></header>").text(question.text);
+		chooser.append(header);
 
 		var fieldName = "name-" + index;
 
@@ -143,11 +148,13 @@ function buildSurvey() {
 					chooser.append(label);
 				});
 				break;
+			case "submit":
+				chooser = $("<input>").attr("type", "submit").val(question.text);
+				break;
+
 		}
 		row.append(chooser);
 		row.append("<br>");
 		box.append(row);
 	});
-	var submit = $("<input>").attr("type", "submit").val("Submit");
-	box.append(submit);
 }

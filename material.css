@@ -9,7 +9,7 @@ body, .main {
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
 }
 
-.question > header, .title > header {
+.chooser > header, .title > header {
 	font-weight: 800;
 	font-size: 24pt;
 }
