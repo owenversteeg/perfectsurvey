@@ -2,12 +2,27 @@ body, .main {
 	background-color: rgb(226, 243, 235);
 }
 
+.main {
+	top: 5em;
+	max-width: 640px;
+	margin: -5em auto 0;
+}
+
+.nav {
+	padding: 2em 0 10em;
+}
+
 .nav, .nav div, .nav a.current, .nav a:hover {
 	background-color: rgb(15, 157, 88);
 }
 
 .nav a {
 	color: #fff;
+}
+
+.topthing {
+	height: 8px;
+	background-color: rgb(185, 246, 202);
 }
 
 .question, .title {
@@ -23,8 +38,8 @@ body, .main {
 }
 
 h1 {
+	font-weight: 500;
 	font-size: 28pt;
-	font-weight: 800;
 }
 
 label {
