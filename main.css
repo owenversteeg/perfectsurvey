@@ -1,3 +1,4 @@
 #projectwonderful, #websitealive, #doubleclick {
-	height: 0;
+	visibility: hidden;
+	position: fixed;
 }
