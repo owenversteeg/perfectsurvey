@@ -1,5 +1,13 @@
 body, .main {
-	background-color: #9d9;
+	background-color: rgb(226, 243, 235);
+}
+
+.nav, .nav div, .nav a.current, .nav a:hover {
+	background-color: rgb(15, 157, 88);
+}
+
+.nav a {
+	color: #fff;
 }
 
 .question, .title {
