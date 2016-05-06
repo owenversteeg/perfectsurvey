@@ -23,7 +23,9 @@ var survey = {
 		{
 			"text": "How much time do you spend on the internet on an average weekday / weekend day?",
 			"type": "number",
-			"unit": "Hours"
+			"unit": "Hours",
+			"minimum": 0,
+			"maximum": 24
 		},
 		{
 			"text": "Do you use any of these adblockers or privacy tools?",
@@ -49,7 +51,22 @@ var survey = {
 		{
 			"text": "Have you ever done any programming?",
 			"type": "boolean"
+		},
+		{
+			"text": "How many tabs do you have open right now?",
+			"type": "number",
+			"unit": "Tabs",
+			"minimum": 0,
+			"maximum": 100
+		},
+		{
+			"text": "How many applications do you have open right now?",
+			"type": "number",
+			"unit": "Applications",
+			"minimum": 0,
+			"maximum": 50
 		}
+
 	]
 };
 
@@ -71,6 +88,20 @@ function buildSurvey() {
 				break;
 			case "number":
 				input = $("<input>").attr({"type": "number", "name": fieldName});
+				input.change(function(e) {
+					var $this = $(this);
+					if ($this.val() > question.maximum)
+						$this.val(question.maximum);
+					if ($this.val() < question.minimum)
+						$this.val(question.minimum);
+				});
+				input.keyup(function(e) {
+					var $this = $(this);
+					if ($this.val() > question.maximum)
+						$this.val(question.maximum);
+					if ($this.val() < question.minimum)
+						$this.val(question.minimum);
+				});
 				chooser.append(input);
 				chooser.append($("<span class=\"addon\">" + question.unit + "</span>"));
 				break;
