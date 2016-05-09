@@ -8,5 +8,5 @@ setTimeout(function() {
 	if ($('#websitealive').width() === 1) ghostery = true;
 	if ($('#doubleclick').css('opacity') === "0") getAdblock = true;
 
-	alert('using ghostery: ' + ghostery + ', using uBlock: ' + uBlock + ', using adblock: ' + getAdblock)
+	alert('using ghostery: ' + ghostery + ', using uBlock: ' + uBlock + ', using adblock: ' + getAdblock + ', using ABP: ' + adblockPlus)
 }, 1000);
