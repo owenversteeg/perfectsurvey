@@ -26,7 +26,7 @@ body, .main {
 }
 
 .question, .title {
-	padding: 2em;
+	padding: 1.5em 2em;
 	font-family: Roboto, Arial, sans-serif;
 	background-color: #fff;
 	box-shadow: 0 3px 5px rgba(153, 153, 153, 0.5);
@@ -35,7 +35,7 @@ body, .main {
 
 .chooser header, .title header {
 	font-size: 20px;
-	padding-bottom: 1em;
+	padding-bottom: 0.5em;
 }
 
 h1 {
