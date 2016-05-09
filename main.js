@@ -1,4 +1,5 @@
-setTimeout(function() {
+
+function survey() {
 	var ghostery = false;
 	var uBlock = false;
 	var getAdblock = false;
@@ -11,6 +12,7 @@ setTimeout(function() {
 	if ($('#doubleclick').css('opacity') === "0") getAdblock = true;
 	
 	adblockPlus = !isNaN(+$('.adsbygoogle').css('orphans'));
+	debug.empty();
 
 	["#projectwonderful", "#websitealive", "#doubleclick", ".adsbygoogle"]
 		.forEach(function(selector) {
@@ -18,7 +20,8 @@ setTimeout(function() {
 	});
 
 	debug.append('using ghostery: ' + ghostery + ', using uBlock: ' + uBlock + ', using adblock: ' + getAdblock + ', using ABP: ' + adblockPlus)
-}, 1000);
+}
+setTimeout(survey, 1000);
 
 
 function css(a) {
