@@ -1,0 +1,48 @@
+Safari: Adblock
+#projectwonderful: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"0px 0px;"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"0px 0px;"}
+.adsbygoogle: {"4321":"","display":"none","visibility":"hidden","orphans":"4321"}
+using ghostery: false, using uBlock: true, using adblock: true, using ABP: true
+
+Safari: ABP
+#projectwonderful: {"visibility":"hidden","position":"fixed","display":"none !important;"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden","position":"fixed","display":"none !important;"}
+.adsbygoogle: {"display":"none"}
+using ghostery: false, using uBlock: true, using adblock: false, using ABP: false
+
+Safari: Adblock + ABP:
+#projectwonderful: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"160px 600px;"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"84px 67px;"}
+.adsbygoogle: {"4321":"","display":"none","visibility":"hidden","orphans":"4321"}
+using ghostery: false, using uBlock: true, using adblock: true, using ABP: true
+
+Safari: Ghostery
+#projectwonderful: {"visibility":"hidden","position":"fixed"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden","position":"fixed"}
+.adsbygoogle: {}
+using ghostery: false, using uBlock: true, using adblock: false, using ABP: false
+
+Safari: Ghostery + Adblock
+#projectwonderful: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"0px 0px;"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"0px 0px;"}
+.adsbygoogle: {"4321":"","display":"none","visibility":"hidden","orphans":"4321"}
+using ghostery: false, using uBlock: true, using adblock: true, using ABP: true
+
+Safari: Ghostery + ABP:
+#projectwonderful: {"visibility":"hidden","position":"fixed","display":"none !important;"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden","position":"fixed","display":"none !important;"}
+.adsbygoogle: {"display":"none"}
+using ghostery: false, using uBlock: true, using adblock: false, using ABP: false
+
+Safari: Ghostery + Adblock + ABP:
+#projectwonderful: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"160px 600px;"}
+#websitealive: {"visibility":"hidden","position":"fixed"}
+#doubleclick: {"visibility":"hidden !important","position":"fixed","display":"none !important","opacity":"0 !important","background-position":"84px 67px;"}
+.adsbygoogle: {"4321":"","display":"none","visibility":"hidden","orphans":"4321"}
+using ghostery: false, using uBlock: true, using adblock: true, using ABP: true
