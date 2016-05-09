@@ -146,7 +146,7 @@ var survey = {
 			}
 		},
 		{
-			"text": "Send Response",
+			"text": "SUBMIT",
 			"type": "submit"
 		}
 	]

@@ -34,13 +34,13 @@ body, .main {
 }
 
 .chooser header, .title header {
-	font-size: 20pt;
+	font-size: 20px;
 	padding-bottom: 1em;
 }
 
 h1 {
 	font-weight: 500;
-	font-size: 28pt;
+	font-size: 34px;
 }
 
 label {
@@ -50,4 +50,14 @@ label {
 
 label input[type="radio"], label input[type="checkbox"] {
 	margin-right: 0.5em;
+}
+
+input[type="submit"] {
+	background-color: #4285f4;
+	border: none;
+	border-radius: 3px;
+	color: #ffffff;
+	font-family: Roboto, Arial, sans-serif;
+	text-transform: uppercase;
+	padding: 10px 14px;
 }
