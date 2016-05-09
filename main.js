@@ -9,6 +9,8 @@ setTimeout(function() {
 	if ($('#projectwonderful').width() === 0) uBlock = true;
 	if ($('#websitealive').width() === 1) ghostery = true;
 	if ($('#doubleclick').css('opacity') === "0") getAdblock = true;
+	
+	adblockPlus = !isNaN(+$('.adsbygoogle').css('orphans'));
 
 	debug.append("#projectwonderful: " + $('#projectwonderful').width() + "<br>");
 	debug.append("#projectwonderful: " + $('#projectwonderful').width() + "<br>");
