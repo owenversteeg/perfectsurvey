@@ -30,9 +30,10 @@ body, .main {
 	font-family: Roboto, Arial, sans-serif;
 	background-color: #fff;
 	box-shadow: 0 3px 5px rgba(153, 153, 153, 0.5);
+	margin: 0;
 }
 
-.chooser > header, .title > header {
+.chooser header, .title header {
 	font-size: 20pt;
 	padding-bottom: 1em;
 }

@@ -28,13 +28,14 @@ var survey = {
 			"maximum": 24
 		},
 		{
-			"text": "Do you use any of these adblockers or privacy tools?",
+			"text": "Do you use any of these ad blockers or privacy tools?",
 			"type": "checkboxes",
 			"options": {
 				"abp": "Adblock Plus (ABP)",
 				"ublock": "uBlock (shield)",
 				"ghostery": "Ghostery (ghost icon)"
-			}
+			},
+			"other": true
 		},
 		{
 			"text": "Which of these sites do you have accounts on?",
@@ -48,10 +49,10 @@ var survey = {
 				"youtube": "YouTube"
 			}
 		},
-		{
-			"text": "Have you ever done any programming?",
-			"type": "boolean"
-		},
+		// {
+		// 	"text": "Have you ever done any programming?",
+		// 	"type": "boolean"
+		// },
 		{
 			"text": "How many tabs do you have open right now?",
 			"type": "number",
@@ -67,16 +68,87 @@ var survey = {
 			"maximum": 50
 		},
 		{
+			"text": "Blocking ads harms free content on the web.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "I can imagine allowing some unobtrusive ads to support free websites.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "I would be willing to donate some money to websites where I block ads.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "All websites should provide their content for free and without ads.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "Blocking ads is wrong, and I disable my ad blocker whenever possible.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "I never click on ads so there is no problem with blocking ads.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "I allow ads on my favorite websites to support them.",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
 			"text": "Send Response",
 			"type": "submit"
 		}
-
 	]
 };
 
 function buildSurvey() {
 	var box = $("#survey");
 	box.empty();
+	var form = $("<form></form>");
+
 	survey.questions.forEach(function(question, index) {
 		var row = $("<div></div>").addClass("question");
 		var chooser = $("<div></div>").addClass("chooser");
@@ -147,6 +219,11 @@ function buildSurvey() {
 					label.append(question.options[key]);
 					chooser.append(label);
 				});
+				if (question.other) {
+					var field = $("<input>").attr({"type": "text", "name": fieldName + "-other"});
+					var label = $("<label>Other: </label>").append(field);
+					chooser.append(label);
+				}
 				break;
 			case "submit":
 				chooser = $("<input>").attr("type", "submit").val(question.text);
@@ -155,6 +232,7 @@ function buildSurvey() {
 		}
 		row.append(chooser);
 		row.append("<br>");
-		box.append(row);
+		form.append(row);
 	});
+	box.append(form);
 }
