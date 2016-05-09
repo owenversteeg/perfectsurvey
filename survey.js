@@ -21,21 +21,15 @@ var survey = {
 			}
 		},
 		{
+			"text": "Internet Usage",
+			"type": "heading"
+		},
+		{
 			"text": "How much time do you spend on the internet on an average weekday / weekend day?",
 			"type": "number",
 			"unit": "Hours",
 			"minimum": 0,
 			"maximum": 24
-		},
-		{
-			"text": "Do you use any of these ad blockers or privacy tools?",
-			"type": "checkboxes",
-			"options": {
-				"abp": "Adblock Plus (ABP)",
-				"ublock": "uBlock (shield)",
-				"ghostery": "Ghostery (ghost icon)"
-			},
-			"other": true
 		},
 		{
 			"text": "Which of these sites do you have accounts on?",
@@ -66,6 +60,20 @@ var survey = {
 			"unit": "Applications",
 			"minimum": 0,
 			"maximum": 50
+		},
+		{
+			"text": "Advertising",
+			"type": "heading"
+		},
+		{
+			"text": "Do you use any of these ad blockers or privacy tools?",
+			"type": "checkboxes",
+			"options": {
+				"abp": "Adblock Plus (ABP)",
+				"ublock": "uBlock (shield)",
+				"ghostery": "Ghostery (ghost icon)"
+			},
+			"other": true
 		},
 		{
 			"text": "Blocking ads harms free content on the web.",
@@ -159,6 +167,9 @@ function buildSurvey() {
 
 		var input;
 		switch (question.type) {
+			case "heading":
+				chooser.append($("<hr>"));
+				break;
 			case "text":
 				input = $("<input>").attr({"type": "text", "name": fieldName});
 				chooser.append(input);
