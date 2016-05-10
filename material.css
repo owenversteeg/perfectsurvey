@@ -38,6 +38,10 @@ body, .main {
 	padding-bottom: 0.5em;
 }
 
+header.heading {
+	color: #777;
+}
+
 h1 {
 	font-weight: 500;
 	font-size: 34px;

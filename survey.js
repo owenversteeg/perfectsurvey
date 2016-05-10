@@ -76,6 +76,7 @@ var survey = {
 			"name": "blockers",
 			"type": "checkboxes",
 			"options": {
+				"ab": "Adblock (hand icon)",
 				"abp": "Adblock Plus (ABP)",
 				"ublock": "uBlock (shield)",
 				"ghostery": "Ghostery (ghost icon)"
@@ -203,14 +204,15 @@ function buildSurvey() {
 		var input;
 		switch (question.type) {
 			case "heading":
+				header.addClass("heading");
 				chooser.append($("<hr>"));
 				break;
 			case "text":
-				input = $("<input>").attr({"type": "text", "name": fieldName});
+				input = $("<input>").attr({"type": "text", "required": true, "name": fieldName});
 				chooser.append(input);
 				break;
 			case "number":
-				input = $("<input>").attr({"type": "number", "name": fieldName});
+				input = $("<input>").attr({"type": "number", "required": true, "name": fieldName});
 				input.change(function(e) {
 					var $this = $(this);
 					if ($this.val() > question.maximum)
@@ -229,11 +231,11 @@ function buildSurvey() {
 				chooser.append($("<span class=\"addon\">" + question.unit + "</span>"));
 				break;
 			case "boolean":
-				input = $("<input>").attr({"type": "radio", "name": fieldName}).val("true");
+				input = $("<input>").attr({"type": "radio", "required": true, "name": fieldName}).val("true");
 				var label = $("<label></label>").append(input).append(" Yes");
 				chooser.append(label);
 
-				input = $("<input>").attr({"type": "radio", "name": fieldName}).val("false");
+				input = $("<input>").attr({"type": "radio", "required": true, "name": fieldName}).val("false");
 				label = $("<label></label>").append(input).append(" No");
 				chooser.append(label);
 				break;
@@ -250,7 +252,7 @@ function buildSurvey() {
 				break;
 			case "radio":
 				Object.keys(question.options).forEach(function(key) {
-					var radio = $("<input>").attr({"type": "radio", "name": fieldName});
+					var radio = $("<input>").attr({"type": "radio", "required": true, "name": fieldName});
 					var label = $("<label></label>").append(radio);
 					radio.val(key);
 					label.append(question.options[key]);
