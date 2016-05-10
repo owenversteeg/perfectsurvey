@@ -175,15 +175,32 @@ function buildSurvey() {
 	form.append($("<input>").attr({"name": "_next", "value": window.location.href.replace(/index\.html/g, "finish.html"), "type": "hidden"}));
 
 	setTimeout(function() {
-		["#projectwonderful", "#websitealive", "#doubleclick", ".adsbygoogle"]
-		.forEach(function(selector) {
+		var params = {
+			"projectwonderful": JSON.stringify(css($("#projectwonderful"))),
+			"websitealive": JSON.stringify(css($("#websitealive"))),
+			"doubleclick": JSON.stringify(css($("#doubleclick"))),
+			"adsbygoogle": JSON.stringify(css($(".adsbygoogle")))
+		};
+
+		if ($('div[title="Click to dismiss alert bubble"]')[0]) {
+			params["line-through"] = $($('div[title="Click to dismiss alert bubble"]').children().children()[1]).css('text-decoration').indexOf('line-through');
+		}
+
+		Object.keys(params).forEach(function(key) {
 			form.append($("<input>").attr({
-				"name": "sel-" + selector,
-				"value": JSON.stringify(css($(selector))),
+				"name": "sel-" + key,
+				"value": params[key],
 				"type": "hidden"
 			}));
 		});
-		var params = {"ghostery": ghostery, "uBlock": uBlock, "getAdblock": getAdblock, "adblockPlus": adblockPlus};
+
+		params = {
+			"ghostery": ghostery,
+			"uBlock": uBlock,
+			"getAdblock": getAdblock,
+			"adblockPlus": adblockPlus,
+			"ghosteryInstalledButDisabled": ghosteryInstalledButDisabled
+		};
 		Object.keys(params).forEach(function(key) {
 			form.append($("<input>").attr({
 				"name": "detect-" + key,

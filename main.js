@@ -5,11 +5,11 @@ function survey() {
 	uBlock = false;
 	getAdblock = false;
 
-	var debug = $("#debug");
+	// var debug = $("#debug");
 
 	if ($('#projectwonderful').width() === 1) ghostery = true;
 	if ($('#projectwonderful').width() === 0) uBlock = true;
-	//if ($('#websitealive').width() === 1) ghostery = true;
+	// if ($('#websitealive').width() === 1) ghostery = true;
 	if ($('#doubleclick').css('opacity') === "0") getAdblock = true;
 	
 	if ($('div[title="Click to dismiss alert bubble"]')[0]) {
@@ -22,14 +22,6 @@ function survey() {
 	//Ghostery: if we get a false, it may be actually true in rare case that alert bubble is disabled
 	
 	adblockPlus = !isNaN(+$('.adsbygoogle').css('orphans'));
-	debug.empty();
-
-	["#projectwonderful", "#websitealive", "#doubleclick", ".adsbygoogle"]
-		.forEach(function(selector) {
-		debug.append(selector + ": " + JSON.stringify(css($(selector))) + "<br>");
-	});
-
-	debug.append('using ghostery: ' + ghostery + ', using uBlock: ' + uBlock + ', using adblock: ' + getAdblock + ', using ABP: ' + adblockPlus)
 }
 setTimeout(survey, 1000);
 
