@@ -1,5 +1,6 @@
 
 function survey() {
+	ghosteryInstalledButDisabled = false;
 	ghostery = false;
 	uBlock = false;
 	getAdblock = false;
@@ -11,7 +12,10 @@ function survey() {
 	//if ($('#websitealive').width() === 1) ghostery = true;
 	if ($('#doubleclick').css('opacity') === "0") getAdblock = true;
 	
-	if ($('div[title="Click to dismiss alert bubble"]')[0]) ghostery = true;
+	if ($('div[title="Click to dismiss alert bubble"]')[0]) {
+		ghostery = true;
+		if ($($('div[title="Click to dismiss alert bubble"]').children().children()[1]).css('text-decoration').indexOf('line-through') === -1) ghosteryInstalledButDisabled = true;
+	}
 	else ghostery = false;
 	
 	//Possibilities for false data
