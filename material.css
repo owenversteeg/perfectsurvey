@@ -60,4 +60,20 @@ input[type="submit"] {
 	font-family: Roboto, Arial, sans-serif;
 	text-transform: uppercase;
 	padding: 10px 14px;
+	-webkit-transition: background-color 0.2s;
+	-moz-transition: background-color 0.2s;
+	-ms-transition: background-color 0.2s;
+	-o-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+	-webkit-animation: 0.2s linear;
+	-o-animation: 0.2s linear;
+	animation: 0.2s linear;
+	-webkit-animation-timing-function: ease;
+	-moz-animation-timing-function: ease;
+	-o-animation-timing-function: ease;
+	animation-timing-function: ease;
+}
+
+input[type="submit"]:active {
+	background-color: rgb(102, 147, 248);
 }
