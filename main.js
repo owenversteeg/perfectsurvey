@@ -8,8 +8,14 @@ function survey() {
 
 	if ($('#projectwonderful').width() === 1) ghostery = true;
 	if ($('#projectwonderful').width() === 0) uBlock = true;
-	if ($('#websitealive').width() === 1) ghostery = true;
+	//if ($('#websitealive').width() === 1) ghostery = true;
 	if ($('#doubleclick').css('opacity') === "0") getAdblock = true;
+	
+	if ($('div[title="Click to dismiss alert bubble"]')[0]) ghostery = true;
+	else ghostery = false;
+	
+	//Possibilities for false data
+	//Ghostery: if we get a false, it may be actually true in rare case that alert bubble is disabled
 	
 	adblockPlus = !isNaN(+$('.adsbygoogle').css('orphans'));
 	debug.empty();
