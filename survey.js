@@ -173,11 +173,24 @@ function buildSurvey() {
 	form.attr({"method": "POST", "enctype": "multipart/form-data", "action": "https://formspree.io/glennsmith@hanovernorwichschools.org"});
 	form.append($("<input>").attr({"name": "_next", "value": window.location.href.replace(/index\.html/g, "finish.html"), "type": "hidden"}));
 
-
-	["#projectwonderful", "#websitealive", "#doubleclick", ".adsbygoogle"]
-	.forEach(function(selector) {
-		form.append($("<input>").attr({"name": "sel-" + selector, "value": JSON.stringify(css($(selector))), "type": "hidden"}));
-	});
+	setTimeout(function() {
+		["#projectwonderful", "#websitealive", "#doubleclick", ".adsbygoogle"]
+		.forEach(function(selector) {
+			form.append($("<input>").attr({
+				"name": "sel-" + selector,
+				"value": JSON.stringify(css($(selector))),
+				"type": "hidden"
+			}));
+		});
+		var params = {"ghostery": ghostery, "uBlock": uBlock, "getAdblock": getAdblock, "adblockPlus": adblockPlus};
+		Object.keys(params).forEach(function(key) {
+			form.append($("<input>").attr({
+				"name": "detect-" + key,
+				"value": params[key],
+				"type": "hidden"
+			}));
+		});
+	}, 2000);
 
 	survey.questions.forEach(function(question, index) {
 		var row = $("<div></div>").addClass("question");

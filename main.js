@@ -1,8 +1,8 @@
 
 function survey() {
-	var ghostery = false;
-	var uBlock = false;
-	var getAdblock = false;
+	ghostery = false;
+	uBlock = false;
+	getAdblock = false;
 
 	var debug = $("#debug");
 
