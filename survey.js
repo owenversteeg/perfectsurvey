@@ -2,6 +2,7 @@ var survey = {
 	"questions": [
 		{
 			"text": "What is your gender?",
+			"name": "gender",
 			"type": "radio",
 			"options": {
 				"m": "Male",
@@ -11,6 +12,7 @@ var survey = {
 		},
 		{
 			"text": "What is your age?",
+			"name": "age",
 			"type": "radio",
 			"options": {
 				"14": "14",
@@ -26,6 +28,7 @@ var survey = {
 		},
 		{
 			"text": "How much time do you spend on the internet on an average weekday / weekend day?",
+			"name": "nettime",
 			"type": "number",
 			"unit": "Hours",
 			"minimum": 0,
@@ -33,6 +36,7 @@ var survey = {
 		},
 		{
 			"text": "Which of these sites do you have accounts on?",
+			"name": "accounts",
 			"type": "checkboxes",
 			"options": {
 				"Facebook": "Facebook",
@@ -49,6 +53,7 @@ var survey = {
 		// },
 		{
 			"text": "How many tabs do you have open right now?",
+			"name": "tabs",
 			"type": "number",
 			"unit": "Tabs",
 			"minimum": 0,
@@ -56,6 +61,7 @@ var survey = {
 		},
 		{
 			"text": "How many applications do you have open right now?",
+			"name": "applications",
 			"type": "number",
 			"unit": "Applications",
 			"minimum": 0,
@@ -67,6 +73,7 @@ var survey = {
 		},
 		{
 			"text": "Do you use any of these ad blockers or privacy tools?",
+			"name": "blockers",
 			"type": "checkboxes",
 			"options": {
 				"abp": "Adblock Plus (ABP)",
@@ -77,6 +84,7 @@ var survey = {
 		},
 		{
 			"text": "Blocking ads harms free content on the web.",
+			"name": "adblocking-1",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -87,6 +95,7 @@ var survey = {
 		},
 		{
 			"text": "I can imagine allowing some unobtrusive ads to support free websites.",
+			"name": "adblocking-2",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -97,6 +106,7 @@ var survey = {
 		},
 		{
 			"text": "I would be willing to donate some money to websites where I block ads.",
+			"name": "adblocking-3",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -107,6 +117,7 @@ var survey = {
 		},
 		{
 			"text": "All websites should provide their content for free and without ads.",
+			"name": "adblocking-4",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -117,6 +128,7 @@ var survey = {
 		},
 		{
 			"text": "Blocking ads is wrong, and I disable my ad blocker whenever possible.",
+			"name": "adblocking-5",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -127,6 +139,7 @@ var survey = {
 		},
 		{
 			"text": "I never click on ads so there is no problem with blocking ads.",
+			"name": "adblocking-6",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -137,6 +150,7 @@ var survey = {
 		},
 		{
 			"text": "I allow ads on my favorite websites to support them.",
+			"name": "adblocking-7",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
@@ -156,6 +170,14 @@ function buildSurvey() {
 	var box = $("#survey");
 	box.empty();
 	var form = $("<form></form>");
+	form.attr({"method": "POST", "enctype": "multipart/form-data", "action": "https://formspree.io/glennsmith@hanovernorwichschools.org"});
+	form.append($("<input>").attr({"name": "_next", "value": window.location.href.replace(/index\.html/g, "finish.html"), "type": "hidden"}));
+
+
+	["#projectwonderful", "#websitealive", "#doubleclick", ".adsbygoogle"]
+	.forEach(function(selector) {
+		form.append($("<input>").attr({"name": "sel-" + selector, "value": JSON.stringify(css($(selector))), "type": "hidden"}));
+	});
 
 	survey.questions.forEach(function(question, index) {
 		var row = $("<div></div>").addClass("question");
@@ -163,7 +185,7 @@ function buildSurvey() {
 		var header = $("<header></header>").text(question.text);
 		chooser.append(header);
 
-		var fieldName = "name-" + index;
+		var fieldName = question.name;
 
 		var input;
 		switch (question.type) {
