@@ -1,6 +1,10 @@
 var survey = {
 	"questions": [
 		{
+			"text": "Overview",
+			"type": "heading"
+		},
+		{
 			"text": "What is your gender?",
 			"name": "gender",
 			"type": "radio",
@@ -20,6 +24,17 @@ var survey = {
 				"16": "16",
 				"17": "17",
 				"18": "18"
+			}
+		},
+		{
+			"text": "What is your opinion on ad blockers?",
+			"name": "blocking-pre",
+			"type": "radio",
+			"options": {
+				0: "I have no opinion / not applicable",
+				1: "Using them is always acceptable",
+				2: "Using them is sometimes wrong and sometimes acceptable",
+				3: "Using them is always wrong"
 			}
 		},
 		{
@@ -128,17 +143,6 @@ var survey = {
 			}
 		},
 		{
-			"text": "Blocking ads is wrong, and I disable my ad blocker whenever possible.",
-			"name": "adblocking-5",
-			"type": "radio",
-			"options": {
-				0: "No Opinion / N/A",
-				1: "Disagree",
-				2: "Somewhat Agree",
-				3: "Agree"
-			}
-		},
-		{
 			"text": "I never click on ads so there is no problem with blocking ads.",
 			"name": "adblocking-6",
 			"type": "radio",
@@ -152,6 +156,17 @@ var survey = {
 		{
 			"text": "I allow ads on my favorite websites to support them.",
 			"name": "adblocking-7",
+			"type": "radio",
+			"options": {
+				0: "No Opinion / N/A",
+				1: "Disagree",
+				2: "Somewhat Agree",
+				3: "Agree"
+			}
+		},
+		{
+			"text": "Blocking ads is wrong, and I disable / don't use ad blockers.",
+			"name": "adblocking-5",
 			"type": "radio",
 			"options": {
 				0: "No Opinion / N/A",
