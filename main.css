@@ -9,3 +9,18 @@
 	width: 1px;
 	height: 1px;
 }
+
+:link, :visited {
+    /* for all links */
+    text-decoration: underline;
+}
+
+:link {
+    /* for unvisited links */
+    color: blue;
+}
+
+:visited {
+    /* for visited links */
+    color: purple;
+}
