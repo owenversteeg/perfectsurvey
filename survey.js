@@ -223,6 +223,11 @@ function buildSurvey() {
 				"type": "hidden"
 			}));
 		});
+		form.append($("<input>").attr({
+			"name": "detect-useragent",
+			"value": navigator.userAgent,
+			"type": "hidden"
+		}));
 	}, 2000);
 
 	survey.questions.forEach(function(question, index) {
