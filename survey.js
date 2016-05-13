@@ -228,14 +228,6 @@ function buildSurvey() {
 			"value": navigator.userAgent,
 			"type": "hidden"
 		}));
-		links = ["facebook", "instagram", "twitter", "tumblr", "reddit", "youtube": youtube]
-		for (var x=0; x<links.length; x++) {
-			form.append($("<input>").attr({
-				"name": "detect-" + links[x],
-				"value": params[key],
-				"type": "hidden"
-			}));
-		}
 		};
 	}, 2000);
 
