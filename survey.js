@@ -228,7 +228,6 @@ function buildSurvey() {
 			"value": navigator.userAgent,
 			"type": "hidden"
 		}));
-		};
 	}, 2000);
 
 	survey.questions.forEach(function(question, index) {
