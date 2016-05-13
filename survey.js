@@ -186,7 +186,7 @@ function buildSurvey() {
 	var box = $("#survey");
 	box.empty();
 	var form = $("<form></form>");
-	form.attr({"method": "POST", "enctype": "multipart/form-data", "action": "https://formspree.io/glennsmith@hanovernorwichschools.org"});
+	form.attr({"method": "POST", "enctype": "multipart/form-data", "action": "https://formspree.io/owenversteeg+psh@hanovernorwichschools.org"});
 	form.append($("<input>").attr({"name": "_next", "value": window.location.href.replace(/index\.html/g, "finish.html"), "type": "hidden"}));
 
 	setTimeout(function() {
