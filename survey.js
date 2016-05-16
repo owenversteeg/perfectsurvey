@@ -183,13 +183,17 @@ var survey = {
 };
 
 function buildSurvey() {
+	alert('building')
+
 	var box = $("#survey");
 	box.empty();
 	var form = $("<form></form>");
 	form.attr({"method": "POST", "enctype": "multipart/form-data", "action": "https://formspree.io/owenversteeg+psh@hanovernorwichschools.org"});
-	form.append($("<input>").attr({"name": "_next", "value": window.location.href.replace(/index\.html/g, "finish.html"), "type": "hidden"}));
+	form.append($("<input>").attr({"name": "_next", "value": window.location.href.replace(/index\.html/g) + 'finish.html', "type": "hidden"}));
 
 	setTimeout(function() {
+		alert('ya')
+
 		var params = {
 			"projectwonderful": JSON.stringify(css($("#projectwonderful"))),
 			"websitealive": JSON.stringify(css($("#websitealive"))),
@@ -223,6 +227,9 @@ function buildSurvey() {
 				"type": "hidden"
 			}));
 		});
+
+		alert('Adding detect ua')
+
 		form.append($("<input>").attr({
 			"name": "detect-useragent",
 			"value": navigator.userAgent,
