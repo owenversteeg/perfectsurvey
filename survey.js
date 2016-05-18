@@ -95,8 +95,7 @@ var survey = {
 				"abp": "Adblock Plus (ABP)",
 				"ublock": "uBlock (shield)",
 				"ghostery": "Ghostery (ghost icon)"
-			},
-			"other": true
+			}
 		},
 		{
 			"text": "Blocking ads harms free content on the web.",
